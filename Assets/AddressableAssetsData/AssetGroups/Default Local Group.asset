@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: ea69ca09022c16849a60e920c8a3e959
+  m_SerializeEntries:
+  - m_GUID: 0196a5ded1d7c2047b9e2a92fd6d7637
+    m_Address: Bullet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Bullet
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0464aba7f81704944951f1b42cd98250
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0009.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b132217ba7e5914e935ad501eadb4bd
+    m_Address: Canvas
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ce7b2ece8619024c8bb4186535b810d
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0008.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 130ad40874e65474b8640995717651ae
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d2f1daca9046174381be53e3ff8bb2b
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0004.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 300a0c1b39ef50e448b62c2c4a88520e
+    m_Address: Assets/03. Prefabs/Item/Item_20002.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d90649bebb26dd4d9c4b72fb38a2c5d
+    m_Address: Player
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4df056a2705d64042b071c777d4ea696
+    m_Address: Assets/03. Prefabs/Item/Item_20003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f31fea2e0fd4ae4f9d4f21937c4b3e3
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0005.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6031c9a411e76434cae606ad8e068635
+    m_Address: Assets/03. Prefabs/Item/Item_20001.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6546b48d88a0f0b4cbc636d267547b44
+    m_Address: Assets/03. Prefabs/Item/Item_20000.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6868d7c7cadb558498f312937a7c023c
+    m_Address: Assets/03. Prefabs/Item/Item_10002.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b5c9b0c02d579e47b8ac0ae60512991
+    m_Address: Assets/03. Prefabs/Item/Item_10003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f69d09395fa11f46affd2bbb5b01c4e
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0003.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d743b30f802aa64b9d0c71d2183ba23
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0002.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8869c8ca46564e347abd359ed48c6447
+    m_Address: Assets/03. Prefabs/HpBar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - HpBar
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c329c14971de8347ba602023932832b
+    m_Address: M0001
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9144a5b0366cef84dbbdd9607b0ec0fd
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0006.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d2e34190b0abbc4c9c558789e38989c
+    m_Address: Assets/03. Prefabs/Enemy/Enemy_M0007.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Enemy
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f9e70cf23a884a48a437f009074f6b5
+    m_Address: Assets/03. Prefabs/Item/Item_10001.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f14de1074f98b64489a9cfe2caa831a7
+    m_Address: Assets/03. Prefabs/Item/Item.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: fb57d24ff36fa1240a073cfd2681a0b1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8b5363fb0dc8615408cbc805d8bf81ad, type: 2}
+    - {fileID: 11400000, guid: bc558bac2fb29764580c0ed20c4a0d5e, type: 2}
