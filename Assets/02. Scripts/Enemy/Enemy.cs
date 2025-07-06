@@ -1,7 +1,4 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy : Character
 {
@@ -10,7 +7,9 @@ public class Enemy : Character
     public EnemyData EnemyData { get; private set; }
     public EnemyMove EnemyMove { get; private set; }
     public EnemyAttack EnemyAttack { get; private set; }
-   
+    public AttackDistance AttackDistance { get; private set; }
+
+
     private ViewPresenter viewPresenter;
 
 
@@ -32,13 +31,20 @@ public class Enemy : Character
     {
         base.Init();
         HpBarView viewHpBar = ManagerHub.Instance.PoolManager.GetPoolObject<HpBarView>("HpBar");
+        AttackDistance = ManagerHub.Instance.PoolManager.GetPoolObject<AttackDistance>("AtkDis");
         EnemyData.Init();
-        deadAction += DropItem;
-        deadAction += ReturnPool;
-        deadAction += viewHpBar.ReturnPool;
+
         viewPresenter = new ViewPresenter(viewHpBar, EnemyData);
         viewPresenter.Init(transform);
         viewPresenter.UpdateHealthBar();
+
+        AttackDistance.Init(this);
+
+        deadAction += DropItem;
+        deadAction += ReturnPool;
+        deadAction += viewHpBar.ReturnPool;
+        deadAction += AttackDistance.ReturnPool;
+
         gameObject.SetActive(true);
         EnemyAttack.Init();
     }
@@ -89,5 +95,6 @@ public class Enemy : Character
     {
         gameObject.SetActive(false);
         ManagerHub.Instance.PoolManager.ReturnPool<Enemy>(MonsterID, this);
+        AttackDistance = null;
     }
 }
