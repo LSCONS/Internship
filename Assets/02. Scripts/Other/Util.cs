@@ -37,4 +37,30 @@ public static class Util
     {
         return RandomPointOnCircle((Vector2)center, radius);
     }
+
+
+    /// <summary>
+    /// center에서 end로 가는 방향벡터를 angle값 float로 반환해주는 메서드.
+    /// </summary>
+    /// <param name="startPosition">시작할 지점</param>
+    /// <param name="endPosition">도착할 지점</param>
+    public static float ComputeAngle2D(this Vector2 startPosition, Vector2 endPosition)
+    {
+        Vector2 dir = endPosition - startPosition;
+        float angleRad = Mathf.Atan2(dir.y, dir.x);
+        float angleDeg = angleRad * Mathf.Rad2Deg;
+
+        return angleDeg;
+    }
+    /// <summary>
+    /// center에서 end로 가는 방향벡터를 angle값 float로 반환해주는 메서드.
+    /// </summary>
+    /// <param name="startPosition">시작할 지점</param>
+    /// <param name="endPosition">도착할 지점</param>
+    public static float ComputeAngle2D(this Vector3 startPosition, Vector3 endPosition)
+    {
+        Vector2 tempCenterPosition = startPosition;
+        Vector2 tempEndPosition = endPosition;
+        return tempCenterPosition.ComputeAngle2D(tempEndPosition);
+    }
 }
