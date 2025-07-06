@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PoolManager
@@ -28,6 +27,9 @@ public class PoolManager
         dictTypeToPool[typeof(Bullet)] = new PoolHub();
         dictTypeToPool[typeof(Bullet)].InitDictStrToT<Bullet>(ManagerHub.Instance.AddressableManager.DictStrToBullet);
 
+        dictTypeToPool[typeof(AttackDistance)] = new PoolHub();
+        dictTypeToPool[typeof(AttackDistance)].InitDictStrToT(ManagerHub.Instance.AddressableManager.DictStrToAtk);
+
         dictTypeToPool[typeof(HpBarView)] = new PoolHub();
         dictTypeToPool[typeof(HpBarView)].InitDictStrToT<HpBarView>(ManagerHub.Instance.AddressableManager.DictStrToHpBar, true);
     }
@@ -39,7 +41,7 @@ public class PoolManager
     /// <typeparam name="T">설정 타입</typeparam>
     /// <param name="key">입력할 key</param>
     /// <param name="obj">집어넣을 객체</param>
-    public void ReturnPool<T>(string key, MonoBehaviour obj)
+    public void ReturnPool<T>(string key, MonoBehaviour obj, bool setParent = false)
     {
         if(!dictTypeToPool.TryGetValue(typeof(T), out PoolHub poolHub))
         {
@@ -47,6 +49,7 @@ public class PoolManager
         }
 
         poolHub.EnQueueGameObject(key, obj);
+        if (setParent) poolHub.SetParentPool(key, obj);
     }
 
 
