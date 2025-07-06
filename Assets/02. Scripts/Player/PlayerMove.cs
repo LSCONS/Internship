@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerMove
 {
     private Player player;
-    
 
     public PlayerMove(Player player)
     {
@@ -13,6 +12,7 @@ public class PlayerMove
 
     public void FixedUpdate()
     {
+        if (player.Data.IsDie) return;
         Move();
     }
 
@@ -22,7 +22,7 @@ public class PlayerMove
     /// </summary>
     private void Move()
     {
-        player.playerRigid2D.linearVelocity = MoveVelocity();
+        player.Rigid2D.linearVelocity = MoveVelocity();
     }
 
 
@@ -31,8 +31,8 @@ public class PlayerMove
     /// </summary>
     private Vector2 MoveVelocity()
     {
-        Vector2 moveDir = player.playerInput.MoveDir;
-        float speed = player.playerData.Speed;
+        Vector2 moveDir = player.Input.MoveDir;
+        float speed = player.Data.Speed;
         return moveDir * speed;
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 
 public class AddressableManager
 {
+    public Transform PlanePrefab { get; private set; }
     public Player PlayerPrefab { get; private set; }
     public Canvas CanvasPrefab { get; private set; }
     public UIEnemyGuide UIEnemyGuidePrefab { get; private set; }
@@ -18,18 +19,22 @@ public class AddressableManager
     public Dictionary<string, Enemy> DictStrToEnemy { get; private set; } = new();
     public Dictionary<string, Item> DictStrToItem { get; private set; } = new();
     public Dictionary<string, HpBarView> DictStrToHpBar { get; private set; } = new();
+    public Dictionary<string, AttackDistance> DictStrToAtk { get; private set; } = new();
 
     public async Task Init()
     {
-        PlayerPrefab = await LoadObjectResource<Player>("Player");
-        CanvasPrefab = await LoadObjectResource<Canvas>("Canvas");
-        UIEnemyGuidePrefab = await LoadObjectResource<UIEnemyGuide>("EnemyGuide");
-        BtnUIEnemyGuide = await LoadObjectResource<Button>("GuideSlot");
-        UIOptionOpenPrefab = await LoadObjectResource<UIOptionOpen>("OptionOpen");
-        await InitDictionary<Bullet, string>(DictStrToBullet, "Bullet", bullet => bullet.BulletID);
+        PlayerPrefab        = await LoadObjectResource<Player>("Player");
+        CanvasPrefab        = await LoadObjectResource<Canvas>("Canvas");
+        UIEnemyGuidePrefab  = await LoadObjectResource<UIEnemyGuide>("EnemyGuide");
+        BtnUIEnemyGuide     = await LoadObjectResource<Button>("GuideSlot");
+        UIOptionOpenPrefab  = await LoadObjectResource<UIOptionOpen>("OptionOpen");
+        PlanePrefab         = await LoadObjectResource<Transform>("Plane");
+
+        await InitDictionary<Bullet, string >(DictStrToBullet, "Bullet", bullet => bullet.BulletID);
         await InitDictionary<Item, string>(DictStrToItem, "Item", item => item.ItemID);
         await InitDictionary<Enemy, string>(DictStrToEnemy, "Enemy", enemy => enemy.MonsterID);
-        await InitDictionary<HpBarView, string>(DictStrToHpBar, "HpBar", hpBar => hpBar.ViewID);
+        await InitDictionary<HpBarView, string>(DictStrToHpBar, "HpBar", hpBar => hpBar.ViewID); 
+        await InitDictionary<AttackDistance, string>(DictStrToAtk, "AttackDistance", AtkDistance => AtkDistance.AttackDistanceID);
     }
 
 
@@ -58,6 +63,7 @@ public class AddressableManager
         T data = default;
         var temp = Addressables.LoadAssetAsync<GameObject>(adress);
         await temp.Task;
+
         if (temp.Status == AsyncOperationStatus.Succeeded)
         {
             data = temp.Result.GetComponent<T>();
@@ -109,51 +115,5 @@ public class AddressableManager
             Debug.LogError($"어드레서블 로딩 실패: {temp.OperationException?.Message}");
         }
         return dataArray;
-    }
-
-
-    /// <summary>
-    /// 데이터를 원하는 타입으로 어드레서블을 통해 불러오는 메서드
-    /// </summary>
-    /// <typeparam name="T">가져올 타입</typeparam>
-    /// <param name="adress">가져올 주소</param>
-    /// <returns>반환 받을 데이터</returns>
-    private async Task<T> LoadTypeResource<T>(string adress)
-    {
-        T data = default;
-        var temp = Addressables.LoadAssetAsync<T>(adress);
-        await temp.Task;
-        if (temp.Status == AsyncOperationStatus.Succeeded)
-        {
-            data = temp.Result;
-        }
-        else
-        {
-            Debug.LogError($"어드레서블 로딩 실패: {temp.OperationException?.Message}");
-        }
-        return data;
-    }
-
-
-    /// <summary>
-    /// 데이터를 원하는 타입으로 어드레서블을 통해 불러오는 메서드
-    /// </summary>
-    /// <typeparam name="T">가져올 타입</typeparam>
-    /// <param name="adress">가져올 주소</param>
-    /// <returns>반환 받을 데이터</returns>
-    private async Task<T[]> LoadTypeResources<T>(string adress)
-    {
-        T[] data = default;
-        var temp = Addressables.LoadAssetsAsync<T>(adress);
-        await temp.Task;
-        if (temp.Status == AsyncOperationStatus.Succeeded)
-        {
-            data = temp.Result.ToArray();
-        }
-        else
-        {
-            Debug.LogError($"어드레서블 로딩 실패: {temp.OperationException?.Message}");
-        }
-        return data;
     }
 }

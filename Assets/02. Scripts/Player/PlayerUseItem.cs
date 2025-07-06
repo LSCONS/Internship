@@ -12,7 +12,7 @@ public class PlayerUseItem
 
     public void UseItem(ItemData itemData)
     {
-        PlayerData playerData = player.playerData;
+        PlayerData playerData = player.Data;
         playerData.CurHP = Mathf.Min(playerData.MaxHP, playerData.CurHP + itemData.MaxHP);
         playerData.CurMP = Mathf.Min(playerData.MaxMP, playerData.CurMP + itemData.MaxMP);
         playerData.MaxAtk += itemData.MaxAtk;

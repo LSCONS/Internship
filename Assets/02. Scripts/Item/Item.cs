@@ -15,7 +15,7 @@ public class Item : MonoBehaviour
     {
         if (1 << collision.gameObject.layer == ReadonlyData.PlayerLayerMask)
         {
-            ManagerHub.Instance.PlayerManager.Player.PlayerUseItem.UseItem(itemData);
+            ManagerHub.Instance.PlayerManager.Player.UseItem.UseItem(itemData);
             ReturnPool();
         }
     }
