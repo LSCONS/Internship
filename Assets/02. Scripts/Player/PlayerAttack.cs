@@ -14,17 +14,24 @@ public class PlayerAttack
     }
 
 
+    /// <summary>
+    /// 클래스 첫 생성시 실행할 초기화 메서드
+    /// </summary>
     public void Init()
     {
-        attackCoolTime = new WaitForSeconds(player.playerData.attackCoolTime);
+        attackCoolTime = new WaitForSeconds(player.Data.attackCoolTime);
         AttackCoroutine = player.StartCoroutine(AttackRepeatCoroutine());
     }
 
 
+    /// <summary>
+    /// 공격을 시도하고 성공 여부를 반환하는 메서드
+    /// </summary>
+    /// <returns></returns>
     public bool TryAttackEnemy()
     {
         Vector2 startPoint = player.transform.position;
-        float checkRange = player.playerData.playerRange;
+        float checkRange = player.Data.playerRange;
         LayerMask enemyLayerMask = ReadonlyData.EnemyLayerMask;
 
         Collider2D enemy = Physics2D.OverlapCircle(startPoint, checkRange, enemyLayerMask);
@@ -38,17 +45,30 @@ public class PlayerAttack
     }
 
 
-    public void Attack(Vector2 targetPosition)
+    /// <summary>
+    /// 공격을 멈추는 메서드
+    /// </summary>
+    public void StopAttack()
     {
-
+        player.StopCoroutine(AttackCoroutine);
+        AttackCoroutine = null;
     }
 
 
+    /// <summary>
+    /// 공격을 반복적으로 실행하는 메서드
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator AttackRepeatCoroutine()
     {
+        yield return attackCoolTime;
         while (true)
         {
-            yield return TryAttackEnemy() ? attackCoolTime : attackDelay;
+            if (player.Input.MoveDir == Vector2.zero)
+            {
+                yield return TryAttackEnemy() ? attackCoolTime : attackDelay;
+            }
+            else yield return attackDelay;
         }
     }
 }
