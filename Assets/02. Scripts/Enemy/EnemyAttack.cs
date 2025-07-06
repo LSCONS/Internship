@@ -5,7 +5,8 @@ public class EnemyAttack
 {
     private Enemy enemy;
     private WaitForSeconds attackCooldown;
-    private WaitForSeconds attackDelay = new WaitForSeconds(1f);
+    private WaitForSeconds attackTimeDelay = new WaitForSeconds(0.1f);
+    private WaitForSeconds attackStartDelay = new WaitForSeconds(0.5f);
     private Coroutine coroAttack;
 
     public EnemyAttack(Enemy enemy)
@@ -23,6 +24,7 @@ public class EnemyAttack
 
     private IEnumerator AttackCoroutine()
     {
+        yield return attackTimeDelay;
         while (true)
         {
             Vector2 enemyPosition = enemy.transform.position;
@@ -33,11 +35,13 @@ public class EnemyAttack
                 Vector2 dir = playerPosition - enemyPosition;
                 //몬스터 움직임 멈춤
                 enemy.EnemyMove.SetMove(false);
-                yield return attackDelay;
+                enemy.AttackDistance.gameObject.SetActive(true);
+                yield return attackStartDelay;
 
                 //공격 시도
                 RaycastHit2D ray = Physics2D.Raycast(enemyPosition, dir, enemyRange, ReadonlyData.PlayerLayerMask);
-                if(ray.collider != null)
+                enemy.AttackDistance.gameObject.SetActive(false);
+                if (ray.collider != null)
                 {
                     ManagerHub.Instance.PlayerManager.Player.OnDamage(enemy.EnemyData.TotalAttack);
                 }
@@ -48,7 +52,7 @@ public class EnemyAttack
             }
             else
             {
-                yield return attackDelay;
+                yield return attackTimeDelay;
             }
         }
     }
