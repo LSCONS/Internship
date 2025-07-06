@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UI;
 
 public class AddressableManager
 {
     public Player PlayerPrefab { get; private set; }
     public Canvas CanvasPrefab { get; private set; }
+    public UIEnemyGuide UIEnemyGuidePrefab { get; private set; }
+    public Button BtnUIEnemyGuide { get; private set; }
+    public UIOptionOpen UIOptionOpenPrefab { get; private set; }
     public Dictionary<string, Bullet> DictStrToBullet { get; private set; } = new();
     public Dictionary<string, Enemy> DictStrToEnemy { get; private set; } = new();
     public Dictionary<string, Item> DictStrToItem { get; private set; } = new();
@@ -19,6 +23,9 @@ public class AddressableManager
     {
         PlayerPrefab = await LoadObjectResource<Player>("Player");
         CanvasPrefab = await LoadObjectResource<Canvas>("Canvas");
+        UIEnemyGuidePrefab = await LoadObjectResource<UIEnemyGuide>("EnemyGuide");
+        BtnUIEnemyGuide = await LoadObjectResource<Button>("GuideSlot");
+        UIOptionOpenPrefab = await LoadObjectResource<UIOptionOpen>("OptionOpen");
         await InitDictionary<Bullet, string>(DictStrToBullet, "Bullet", bullet => bullet.BulletID);
         await InitDictionary<Item, string>(DictStrToItem, "Item", item => item.ItemID);
         await InitDictionary<Enemy, string>(DictStrToEnemy, "Enemy", enemy => enemy.MonsterID);
