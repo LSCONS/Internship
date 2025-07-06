@@ -41,9 +41,10 @@ public class Enemy : Character
 
     public override void OnDamage(float damage)
     {
-        if (enemyData.CurHp == 0) return;
         base.OnDamage(damage);
+
         enemyData.CurHp = Mathf.Max(enemyData.CurHp - (int)damage, 0);
+
         viewPresenter.UpdateHealthBar();
         if (enemyData.CurHp == 0)
         {
