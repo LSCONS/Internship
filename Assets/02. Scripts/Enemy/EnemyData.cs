@@ -19,6 +19,8 @@ public class EnemyData : IHpModel
     public int CurHp;
     public int ModelMaxHp => MaxHP;
     public int ModelCurHp => CurHp;
+    public float TotalRange => AttackRange * AttackRangeMul + 1;
+    public float TotalAttack => Attack * AttackMul;
 
     public void Init()
     {
