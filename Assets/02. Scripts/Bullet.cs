@@ -71,6 +71,9 @@ public class Bullet : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 총알을 풀로 되돌리는 메서드
+    /// </summary>
     private void ReturnPool()
     {
         gameObject.SetActive(false);
