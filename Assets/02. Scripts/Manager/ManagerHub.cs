@@ -20,6 +20,6 @@ public class ManagerHub : Singleton<ManagerHub>
         UIManager.Init();
         PlayerManager.Init();
         EnemySpawnerManager.Init();
+        Instantiate(AddressableManager.PlanePrefab);
     }
-
 }
