@@ -131,6 +131,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8dd80c1d75f3c7340a2039b82e3653e8
+    m_Address: Plane
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9144a5b0366cef84dbbdd9607b0ec0fd
     m_Address: Assets/03. Prefabs/Enemy/Enemy_M0006.prefab
     m_ReadOnly: 0
@@ -148,6 +153,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c346dd1eb63a17c4790ff4b99ab224e4
+    m_Address: Assets/03. Prefabs/AttackDistance.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - AttackDistance
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d14102beb52ac5647a3d350df5ff41dd
     m_Address: OptionOpen

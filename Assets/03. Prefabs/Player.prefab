@@ -43,8 +43,8 @@ Camera:
   m_GameObject: {fileID: 3650209197217795957}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.21568628, g: 0.5568628, b: 0.42745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 7893569981886072704}
   - component: {fileID: 8907004486605643050}
   - component: {fileID: 7876687609332311474}
+  - component: {fileID: 3886709448538275749}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -217,7 +218,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 500
-  m_Sprite: {fileID: 1363809998, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
+  m_Sprite: {fileID: 938132271, guid: 57a1443e67528144aa07582927559650, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef724a198aa1644b88b4fca54d607fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <playerData>k__BackingField:
+  <Data>k__BackingField:
     attackCoolTime: 0.5
     playerRange: 5
     Name: User Name
@@ -254,12 +255,13 @@ MonoBehaviour:
     MaxAtkMul: 1
     MaxDef: 0
     MaxDefMul: 1
-    Speed: 5
+    Speed: 3
     isPoison: 0
-    CurHP: 100
-    CurMP: 100
+    CurHP: 0
+    CurMP: 0
     CurExp: 0
-  <playerRigid2D>k__BackingField: {fileID: 8907004486605643050}
+  <Rigid2D>k__BackingField: {fileID: 8907004486605643050}
+  <Animator>k__BackingField: {fileID: 3886709448538275749}
 --- !u!50 &8907004486605643050
 Rigidbody2D:
   serializedVersion: 5
@@ -323,3 +325,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
+--- !u!95 &3886709448538275749
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685025480450059261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2db2c1482a3eee4a90b4fdcf7a2f1cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
