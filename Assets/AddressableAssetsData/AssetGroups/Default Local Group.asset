@@ -61,6 +61,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dd9d3e3727deea4ab870b6625e3f6f5
+    m_Address: GuideSlot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4df056a2705d64042b071c777d4ea696
     m_Address: Assets/03. Prefabs/Item/Item_20003.prefab
     m_ReadOnly: 0
@@ -103,6 +108,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Enemy
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d4a05279ae46444781a59ce448530e3
+    m_Address: EnemyGuide
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d743b30f802aa64b9d0c71d2183ba23
     m_Address: Assets/03. Prefabs/Enemy/Enemy_M0002.prefab
     m_ReadOnly: 0
@@ -138,6 +148,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d14102beb52ac5647a3d350df5ff41dd
+    m_Address: OptionOpen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f14de1074f98b64489a9cfe2caa831a7
     m_Address: Assets/03. Prefabs/Item/Item.prefab
