@@ -5,6 +5,12 @@ public class PlayerInput
 {
     public Vector2 MoveDir { get; private set; }
     private Input_Player input_Player = new();
+    private Player player;
+
+    public PlayerInput(Player player)
+    {
+        this.player = player;
+    }
 
 
     /// <summary>
@@ -33,6 +39,8 @@ public class PlayerInput
     private void OnMove(InputAction.CallbackContext context)
     {
         MoveDir = context.ReadValue<Vector2>().normalized;
+        player.Animator.SetBool(ReadonlyData.AnimatorHash_IsMove, true);
+        player.Animator.SetBool(ReadonlyData.AnimatorHash_IsIdle, false);
     }
 
 
@@ -42,5 +50,7 @@ public class PlayerInput
     private void StopMove(InputAction.CallbackContext context)
     {
         MoveDir = Vector2.zero;
+        player.Animator.SetBool(ReadonlyData.AnimatorHash_IsMove, false);
+        player.Animator.SetBool(ReadonlyData.AnimatorHash_IsIdle, true);
     }
 }
