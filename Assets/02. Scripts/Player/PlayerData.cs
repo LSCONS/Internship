@@ -29,6 +29,8 @@ public class PlayerData : IHpModel
     public int CurHP;
     public int CurMP;
     public int CurExp;
+
+    public bool IsDie = false;
     public int TotalAtk => (int)(MaxAtk * MaxAtkMul);
     public int TotalDef => (int)(MaxDef * MaxDefMul);
 
