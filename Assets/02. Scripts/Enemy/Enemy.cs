@@ -7,14 +7,24 @@ public class Enemy : Character
 {
     [field: SerializeField] public Rigidbody2D Rigid2D { get; private set; }
     public string MonsterID;
-    public EnemyData enemyData { get; private set; }
-    private EnemyMove enemyMove;
+    public EnemyData EnemyData { get; private set; }
+    public EnemyMove EnemyMove { get; private set; }
+    public EnemyAttack EnemyAttack { get; private set; }
+   
     private ViewPresenter viewPresenter;
+
 
     private void Awake()
     {
-        enemyData = ManagerHub.Instance.DataManager.GetEnemyData(MonsterID);
-        enemyMove = new EnemyMove(this);
+        EnemyData = ManagerHub.Instance.DataManager.GetEnemyData(MonsterID);
+        EnemyMove = new EnemyMove(this);
+        EnemyAttack = new EnemyAttack(this);
+    }
+
+
+    private void OnDisable()
+    {
+        EnemyAttack?.OnDisable();
     }
 
 
@@ -22,20 +32,21 @@ public class Enemy : Character
     {
         base.Init();
         HpBarView viewHpBar = ManagerHub.Instance.PoolManager.GetPoolObject<HpBarView>("HpBar");
-        enemyData.Init();
+        EnemyData.Init();
         deadAction += DropItem;
         deadAction += ReturnPool;
         deadAction += viewHpBar.ReturnPool;
-        viewPresenter = new ViewPresenter(viewHpBar, enemyData);
+        viewPresenter = new ViewPresenter(viewHpBar, EnemyData);
         viewPresenter.Init(transform);
         viewPresenter.UpdateHealthBar();
         gameObject.SetActive(true);
+        EnemyAttack.Init();
     }
 
 
     private void FixedUpdate()
     {
-        enemyMove?.FixedUpdate();
+        EnemyMove?.FixedUpdate();
     }
 
 
@@ -43,10 +54,10 @@ public class Enemy : Character
     {
         base.OnDamage(damage);
 
-        enemyData.CurHp = Mathf.Max(enemyData.CurHp - (int)damage, 0);
+        EnemyData.CurHp = Mathf.Max(EnemyData.CurHp - (int)damage, 0);
 
         viewPresenter.UpdateHealthBar();
-        if (enemyData.CurHp == 0)
+        if (EnemyData.CurHp == 0)
         {
             Dead();
         }
@@ -62,7 +73,7 @@ public class Enemy : Character
     private void DropItem()
     {
         Vector2 itemPosition = transform.position;
-        foreach (int itemID in enemyData.DropItem)
+        foreach (int itemID in EnemyData.DropItem)
         {
             Item item = ManagerHub.Instance.PoolManager.GetPoolObject<Item>(itemID.ToString());
             if (item != null)
