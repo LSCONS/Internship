@@ -151,4 +151,16 @@ public class PoolHub
             tr.gameObject.SetActive(isActive);
         }
     }
+
+
+    /// <summary>
+    /// obj의 부모를 기존 key의 Pool로 옮기는 메서드
+    /// </summary>
+    /// <param name="key">입력할 키</param>
+    /// <param name="obj">옮길 오브젝트</param>
+    public void SetParentPool(string key, MonoBehaviour obj)
+    {
+        Transform parent = GetParentTransform(key);
+        obj.transform.SetParent(parent);
+    }
 }
