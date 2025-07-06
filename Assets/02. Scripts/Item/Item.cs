@@ -5,6 +5,12 @@ public class Item : MonoBehaviour
     public string ItemID;
     private ItemData itemData;
 
+    private void Awake()
+    {
+        itemData = ManagerHub.Instance.DataManager.GetItemData(ItemID);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (1 << collision.gameObject.layer == ReadonlyData.PlayerLayerMask)
