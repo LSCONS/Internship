@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DataManager
@@ -59,7 +60,8 @@ public class DataManager
     {
         if(DictStrToEnemy.TryGetValue(monsterID, out EnemyData enemyData))
         {
-            return enemyData;
+            EnemyData result = new EnemyData(enemyData);
+            return result;
         }
 #if UNITY_EDITOR
         Debug.LogError($"몬스터 ID {monsterID}를 찾을 수 없습니다.");
@@ -76,7 +78,8 @@ public class DataManager
     {
         if (DictStrToItem.TryGetValue(itemID, out ItemData itemData))
         {
-            return itemData;
+            ItemData result = new ItemData(itemData);
+            return result;
         }
 #if UNITY_EDITOR
         Debug.LogError($"아이템 ID {itemID}를 찾을 수 없습니다.");
