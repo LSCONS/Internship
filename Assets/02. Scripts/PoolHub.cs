@@ -34,13 +34,16 @@ public class PoolHub
     /// </summary>
     /// <param name="key">입력할 키</param>
     /// <returns></returns>
-    public MonoBehaviour TryGetGameObject(string key)
+    public MonoBehaviour TryGetGameObject(string key, bool isCopy = true)
     {
         if (DictStrToQueue.TryGetValue(key, out Queue<MonoBehaviour> queue) && queue.Count > 0)
         {
             return queue.Dequeue();
         }
-        return AddGameObject(key);
+
+        if(isCopy) return AddGameObject(key);
+
+        return null;
     }
 
 
@@ -134,5 +137,18 @@ public class PoolHub
             DictStrToTrParent[key] = trParent;
         }
         return trParent;
+    }
+
+
+    /// <summary>
+    /// 풀을 관리하는 부모 오브젝트의 활성화를 설정하는 메서드.
+    /// </summary>
+    /// <param name="isActive"></param>
+    public void SetActiveParentObj(bool isActive)
+    {
+        foreach(Transform tr in DictStrToTrParent.Values)
+        {
+            tr.gameObject.SetActive(isActive);
+        }
     }
 }
