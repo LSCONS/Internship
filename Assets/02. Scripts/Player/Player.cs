@@ -48,8 +48,6 @@ public class Player : Character
     /// <param name="damage"></param>
     public override void OnDamage(float damage)
     {
-        if (playerData.CurHP == 0) return;
-
         base.OnDamage(damage);
         playerData.CurHP = Mathf.Max(playerData.CurHP - (int)damage, 0);
         viewPresenter.UpdateHealthBar();
