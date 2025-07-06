@@ -102,10 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbfa89281fe3bf408558c2b3626076b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField:
-    Name: Name
-    Speed: 3
-    Health: 100
   <Rigid2D>k__BackingField: {fileID: 2795086689460931347}
   MonsterID: M0001
 --- !u!50 &2795086689460931347
@@ -116,14 +112,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 116612604190088461}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -134,7 +130,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &8800612886494064894
 CircleCollider2D:
   m_ObjectHideFlags: 0
