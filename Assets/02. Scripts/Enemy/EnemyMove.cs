@@ -28,6 +28,7 @@ public class EnemyMove
         Vector2 enemyPoint = enemy.transform.position;
         Vector2 moveDir = (playerPoint - enemyPoint).normalized;
         enemy.Rigid2D.linearVelocity = enemy.EnemyData.MoveSpeed * moveDir;
+        enemy.FlipX(moveDir.x);
     }
 
 

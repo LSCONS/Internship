@@ -220,7 +220,7 @@ SpriteRenderer:
   m_SortingOrder: 500
   m_Sprite: {fileID: 938132271, guid: 57a1443e67528144aa07582927559650, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -260,8 +260,10 @@ MonoBehaviour:
     CurHP: 0
     CurMP: 0
     CurExp: 0
+    IsDie: 0
   <Rigid2D>k__BackingField: {fileID: 8907004486605643050}
   <Animator>k__BackingField: {fileID: 3886709448538275749}
+  <SpriteRenderer>k__BackingField: {fileID: 8485422734224369794}
 --- !u!50 &8907004486605643050
 Rigidbody2D:
   serializedVersion: 5
