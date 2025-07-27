@@ -41,6 +41,10 @@ public class PlayerAttack
         if (bulletObj == null) return false;
 
         bulletObj.InitData(player.transform.position, enemy.transform.position, 5, 10, 10);
+        //총알을 성공적으로 발사했다면 총알을 발사한 방향으로 바라보도록 설정.
+        Vector2 dir = enemy.transform.position - player.transform.position;
+        player.FlipX(dir.x);
+
         return true;
     }
 
