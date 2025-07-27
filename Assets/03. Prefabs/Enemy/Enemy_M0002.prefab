@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbfa89281fe3bf408558c2b3626076b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <SpriteRenderer>k__BackingField: {fileID: 3142866483147405601}
   <Rigid2D>k__BackingField: {fileID: 2795086689460931347}
   MonsterID: M0002
 --- !u!50 &2795086689460931347

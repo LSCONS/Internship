@@ -22,7 +22,9 @@ public class PlayerMove
     /// </summary>
     private void Move()
     {
-        player.Rigid2D.linearVelocity = MoveVelocity();
+        Vector2 MoveVector2 = MoveVelocity();
+        player.Rigid2D.linearVelocity = MoveVector2;
+        player.FlipX(MoveVector2.x);
     }
 
 
